@@ -1,0 +1,76 @@
+This assignment is graded by your project advisor using the following assessment measurements. You should discuss each rubric criteria in the context of your specific project with your advisor.
+
+3 - Exceeds Mastery
+
+2 - Meets Mastery
+
+1 - Below Mastery
+
+Rubric
+Workbook 1: Combined Development/Research
+Workbook 1: Combined Development/Research
+Criteria	Ratings	Pts
+ This criterion is linked to a Learning OutcomeWB1, Ch1. Literature Search, State-of-the-Art
+threshold: 2.0 pts
+3 pts
+Exceeds Mastery: State-of-the-art technologies and techniques in both academia and industry are clearly identified and referenced. Many references are from peer-reviewed publications.
+2 pts
+Mastery: Some State-of-the-art technologies and techniques from academia and industry are identified with some references.
+1 pts
+Below Mastery: State-of-the-art technologies and techniques from academia and industry are deficient and references are lacking
+3 pts
+ This criterion is linked to a Learning OutcomeWB1, Ch2. Justification
+threshold: 2.0 pts
+3 pts
+Exceeds Mastery: This project is so strongly justified that all expectations are that it will result in a published peer-reviewed paper and/or that it would attract funding when presented at Expo.
+2 pts
+Mastery: Justification is worthy of receiving credits for both part A and B of this two semester project
+1 pts
+Below Mastery: Project lacks a clear justification
+3 pts
+ This criterion is linked to a Learning OutcomeWB1, Ch3. Requirements (development) or Baseline Approaches (research)
+threshold: 2.0 pts
+3 pts
+Exceeds Mastery: Requirements or baseline approaches are very complete leaving little room for ambiguity.
+2 pts
+Mastery: Requirements or baseline approaches are mostly complete.
+1 pts
+Below Mastery: Requirements or baseline approaches are obviously incomplete.
+3 pts
+ This criterion is linked to a Learning OutcomeWB1, Ch4. Dependencies and Deliverables
+threshold: 2.0 pts
+3 pts
+Exceeds Mastery: All dependencies that will bring the project to a halt are listed. Additional deliverables listed demonstrate this project layout exceeds expectations.
+2 pts
+Mastery: Any dependencies that will bring the project to a halt are listed. Additional deliverables demonstrate a strong project.
+1 pts
+Below Mastery: Missing dependencies or no additional deliverables.
+3 pts
+ This criterion is linked to a Learning OutcomeWB1, Ch5. Project Architecture
+threshold: 2.0 pts
+3 pts
+Exceeds Mastery: Architecture diagram and description includes both function and technology and is complete.
+2 pts
+Mastery: Architecture diagram and description includes both function and technology with some obvious omissions.
+1 pts
+Below Mastery: Architecture diagram and description is missing function or technology and is obviously incomplete.
+3 pts
+ This criterion is linked to a Learning OutcomeWB1, Ch8. Implementation Plan
+threshold: 3.0 pts
+3 pts
+Exceeds Mastery: All components requested for this chapter have been completed.
+2 pts
+Mastery: 1. A programming and execution environment has been set up. 2. Development tools have been acquired for each member who requires them. 3. A hardware prototyping and simulation environment has been obtained. 4. Sample programs or hardware simulations is understood or can be executed. 5.There is a clear plan for Implementing a prototype/method so the use of all technologies is understood.
+1 pts
+Below Mastery: The Implementation plan is clearly deficient.
+3 pts
+ This criterion is linked to a Learning OutcomeWB1, Ch9. Project Schedule
+threshold: 3.0 pts
+3 pts
+Exceeds Mastery: A complete project schedule with identified checkpoints or sprints is provided. Each team member’s tasks are identified. Little task overlap exists between team members.
+2 pts
+Mastery: Project schedule with some checkpoints or sprints provided. Team member’s tasks are identified but with some gaps. Task overlap exists between team members.
+1 pts
+Below Mastery: Minimal project schedule with few checkpoints or sprints provided. Team member’s tasks are identified but with significant gaps. Many task gaps exist between team members.
+3 pts
+Total Points: 21

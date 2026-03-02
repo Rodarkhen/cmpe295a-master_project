@@ -1,0 +1,80 @@
+This assignment is used to keep track of your master’s project meetings. All meeting notes must be maintained in your team’s GitHub project. In the submission text box, paste the direct link to the "/meetings/" folder in your team’s GitHub repository (or the equivalent location where your meeting notes are stored).
+
+ 
+
+Meetings to track:
+
+Advisor Meetings (Team + Project Advisor)
+Meetings with all students in your project team and your project advisor
+Minimum expectation: At least 1 advisor meeting every two weeks
+Team-Only Meetings (Students Only)
+Meetings with only the students in your project team
+Minimum expectation: At least 1 team-only meeting every week
+ 
+
+GitHub requirements:
+
+Create a “/meetings/” folder in your GitHub project.
+Use one note per meeting, for example:
+YYYY-MM-DD-advisor.md
+YYYY-MM-DD-team.md
+Notes may be written in Markdown (.md) or text (.txt).
+Include action items and ownership clearly.
+These records will be monitored every two weeks.
+Template for Meeting Notes: Meeting Notes Template.txtDownload Meeting Notes Template.txt
+ 
+
+Notes:
+
+Quality is not about length—it’s about specificity, traceability, and actionability.
+Meetings with your advisor must be meaningful.
+This submission will be for all meetings from the beginning of the semester and leading up to the Workbook 1 assignment.
+Rubric
+Some Rubric (1)
+Some Rubric (1)
+Criteria	Ratings	Pts
+This criterion is linked to a Learning OutcomeMeeting Frequency & Compliance
+1 to >0.8 pts
+Excellent (Full Credit)
+Meets expectations: ≥1 advisor meeting / 2 weeks and ≥1 team meeting / week, consistently.
+0.8 to >0.4 pts
+Satisfactory (Partial)
+Misses 1–2 expected meetings in the period
+0.4 to >0 pts
+Needs Improvement
+Frequently missing meetings or no clear evidence of required meeting cadence
+1 pts
+This criterion is linked to a Learning OutcomeRegular Updates in GitHub
+2 to >1.6 pts
+Excellent (Full Credit)
+Notes posted promptly and consistently in GitHub; easy to find and well-organized
+1.6 to >0.8 pts
+Satisfactory (Partial)
+Notes posted but occasionally delayed or inconsistently organized
+0.8 to >0 pts
+Needs Improvement
+Notes missing, hard to locate, or not maintained in GitHub project
+2 pts
+This criterion is linked to a Learning OutcomeLevel of Detail & Clarity
+1 to >0.8 pts
+Excellent (Full Credit)
+Clear, specific, and complete: accomplishments, decisions, blockers, and next steps are well described
+0.8 to >0.4 pts
+Satisfactory (Partial)
+Some sections are vague or incomplete, but overall understandable
+0.4 to >0 pts
+Needs Improvement
+Minimal detail; missing key sections; unclear what happened or what changed
+1 pts
+This criterion is linked to a Learning OutcomeProfessional Quality
+1 to >0.8 pts
+Excellent (Full Credit)
+Formatting inconsistent; occasional missing structure
+0.8 to >0.4 pts
+Satisfactory (Partial)
+Misses 1–2 expected meetings in the period
+0.4 to >0 pts
+Needs Improvement
+Disorganized, hard to read, inconsistent or missing structure
+1 pts
+Total Points: 5
