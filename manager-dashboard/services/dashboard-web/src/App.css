@@ -122,3 +122,109 @@
   overflow: auto;
   text-align: left;
 }
+
+.dashboard__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 960px) {
+  .dashboard__grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.price-table th,
+.price-table td {
+  text-align: left;
+  padding: 0.5rem 0.65rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.price-table th {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.price-table__empty {
+  color: var(--text);
+  font-style: italic;
+}
+
+.price-table__mono {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+.price-table__row--selected {
+  background: var(--accent-bg);
+}
+
+.linkish {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.dev-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.dev-grid__wide {
+  grid-column: 1 / -1;
+}
+
+.dev-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-h);
+}
+
+.dev-grid input {
+  padding: 0.45rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.dev-msg {
+  font-size: 0.9rem;
+  color: var(--text-h);
+  align-self: center;
+}
+
+.shap-panel__lead {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.shap-panel__chart {
+  height: 220px;
+  position: relative;
+}

@@ -1,0 +1,82 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: retail-mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: retail-dashboard-postgres
+    environment:
+      POSTGRES_USER: retail
+      POSTGRES_PASSWORD: retail_dev
+      POSTGRES_DB: retail_dashboard
+    ports:
+      - "5432:5432"
+    volumes:
+      - retail_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U retail -d retail_dashboard"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  dashboard-api:
+    build:
+      context: ../services/dashboard-api
+      dockerfile: Dockerfile
+    container_name: retail-dashboard-api
+    environment:
+      DATABASE_URL: postgresql://retail:retail_dev@postgres:5432/retail_dashboard
+      MQTT_BROKER_HOST: mosquitto
+      MQTT_BROKER_PORT: "1883"
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mosquitto:
+        condition: service_started
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'python -c "import urllib.request; urllib.request.urlopen(\"http://127.0.0.1:8000/health\")"',
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  dashboard-web:
+    image: node:20-alpine
+    container_name: retail-dashboard-web
+    working_dir: /app
+    ports:
+      - "5173:5173"
+    environment:
+      DASHBOARD_API_ORIGIN: http://dashboard-api:8000
+      DASHBOARD_API_WS_ORIGIN: ws://dashboard-api:8000
+    volumes:
+      - ../services/dashboard-web:/app
+      - dashboard_web_node_modules:/app/node_modules
+    # Do not `rm -rf node_modules` — that path is a Docker volume mount (EBUSY).
+    # If chart.js is missing, clear the volume *contents* then npm ci.
+    command:
+      - sh
+      - -c
+      - >-
+        npm ls chart.js >/dev/null 2>&1 ||
+        (find /app/node_modules -mindepth 1 -maxdepth 1 -exec rm -rf {} + 2>/dev/null;
+        npm ci);
+        exec npm run dev -- --host 0.0.0.0 --port 5173
+    depends_on:
+      dashboard-api:
+        condition: service_healthy
+
+volumes:
+  retail_pgdata:
+  dashboard_web_node_modules:
