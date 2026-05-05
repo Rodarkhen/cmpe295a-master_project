@@ -1,6 +1,6 @@
 export default function Sidebar() {
   return (
-    <aside className="w-64 bg-white shadow p-6">
+    <aside className="w-48 bg-white shadow p-6">
       <h1 className="text-2xl font-bold mb-8">PriceAI</h1>
 
       <nav className="space-y-3">

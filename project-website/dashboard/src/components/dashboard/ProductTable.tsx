@@ -1,7 +1,14 @@
-export default function ProductTable({ products }: any) {
+import { riskColor } from "../../utils/riskColor";
+
+export default function ProductTable({
+  products,
+  selectedProduct,
+  onSelectProduct,
+}: any) {
   return (
     <div className="col-span-2 bg-white p-4 rounded-xl shadow">
       <h2 className="text-xl font-bold mb-4">Product Pricing</h2>
+
       <table className="w-full">
         <thead>
           <tr className="text-left border-b">
@@ -10,16 +17,35 @@ export default function ProductTable({ products }: any) {
             <th>AI Price</th>
             <th>Margin</th>
             <th>Risk</th>
+            <th>Min</th>
+            <th>Max</th>
           </tr>
         </thead>
+
         <tbody>
-          {products.map((p: any) => (
-            <tr key={p.id} className="border-b">
-              <td>{p.name}</td>
-              <td>${p.currentPrice}</td>
-              <td>${p.aiPrice}</td>
-              <td>{p.margin}%</td>
-              <td>{p.risk}</td>
+          {products.map((product: any) => (
+            <tr
+              key={product.id}
+              onClick={() => onSelectProduct(product)}
+              className={`border-b cursor-pointer hover:bg-blue-50 ${
+                selectedProduct.id === product.id ? "bg-blue-100" : ""
+              }`}
+            >
+              <td>{product.name}</td>
+              <td>${product.currentPrice.toFixed(2)}</td>
+              <td
+                className={
+                  product.aiPrice > product.currentPrice
+                    ? "text-green-600"
+                    : "text-red-500"
+                }
+              >
+                ${product.aiPrice.toFixed(2)}
+              </td>
+              <td>{product.margin}%</td>
+              <td className={riskColor(product.risk)}>{product.risk}</td>
+              <td>${product.minPrice.toFixed(2)}</td>
+              <td>${product.maxPrice.toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
