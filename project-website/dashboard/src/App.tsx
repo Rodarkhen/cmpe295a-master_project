@@ -2,28 +2,56 @@ import { useEffect, useState } from "react";
 import Sidebar from "./components/layout/Sidebar";
 import DashboardPage from "./pages/DashboardPage";
 import ProductsPage from "./pages/ProductsPage";
+import { products as mockProducts } from "./data/mockData";
 
 export default function App() {
   const [products, setProducts] = useState<any[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [riskFilter, setRiskFilter] = useState("All");
+
   const [activePage, setActivePage] = useState("Dashboard");
+  const [dataSource, setDataSource] = useState<"Live API" | "Mock Data">(
+    "Mock Data"
+  );
 
   async function fetchProducts() {
-    const res = await fetch("http://localhost:8000/products");
-    const data = await res.json();
+    try {
+      const res = await fetch("http://localhost:8000/products");
 
-    setProducts(data);
+      if (!res.ok) {
+        throw new Error("Backend response failed");
+      }
 
-    setSelectedProduct((current: any) => {
-      if (!current) return data[0];
-      return data.find((p: any) => p.id === current.id) || data[0];
-    });
+      const data = await res.json();
+
+      setProducts(data);
+      setDataSource("Live API");
+
+      setSelectedProduct((current: any) => {
+        if (!current) return data[0];
+        return data.find((p: any) => p.id === current.id) || data[0];
+      });
+    } catch (error) {
+      console.warn("Backend unavailable. Using mock data.");
+
+      setProducts(mockProducts);
+      setDataSource("Mock Data");
+
+      setSelectedProduct((current: any) => {
+        if (!current) return mockProducts[0];
+        return (
+          mockProducts.find((p: any) => p.id === current.id) ||
+          mockProducts[0]
+        );
+      });
+    }
   }
 
   useEffect(() => {
     fetchProducts();
+
     const interval = setInterval(fetchProducts, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -39,15 +67,26 @@ export default function App() {
     return matchesSearch && matchesRisk;
   });
 
-  function handleSaveLimits(productId: number, minPrice: number, maxPrice: number) {
+  function handleSaveLimits(
+    productId: number,
+    minPrice: number,
+    maxPrice: number
+  ) {
     const updatedProducts = products.map((product) =>
-      product.id === productId ? { ...product, minPrice, maxPrice } : product
+      product.id === productId
+        ? { ...product, minPrice, maxPrice }
+        : product
     );
 
     setProducts(updatedProducts);
 
-    const updatedSelected = updatedProducts.find((p) => p.id === productId);
-    if (updatedSelected) setSelectedProduct(updatedSelected);
+    const updatedSelected = updatedProducts.find(
+      (p) => p.id === productId
+    );
+
+    if (updatedSelected) {
+      setSelectedProduct(updatedSelected);
+    }
   }
 
   if (!selectedProduct) {
@@ -56,7 +95,11 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen bg-gray-100">
-      <Sidebar activePage={activePage} setActivePage={setActivePage} />
+      <Sidebar
+        activePage={activePage}
+        setActivePage={setActivePage}
+        dataSource={dataSource}
+      />
 
       <main className="flex-1 p-8 overflow-x-hidden">
         {activePage === "Dashboard" && (

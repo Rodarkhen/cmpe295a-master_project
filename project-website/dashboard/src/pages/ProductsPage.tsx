@@ -6,7 +6,8 @@ type Product = {
   name: string;
   category?: string;
   source?: string;
-  currentPrice: number; // your store price
+  competitorUrl?: string;
+  currentPrice: number;
   competitorPrice?: number;
   aiPrice?: number;
   minPrice: number;
@@ -206,13 +207,26 @@ export default function ProductsPage({ products }: { products: Product[] }) {
                   </td>
 
                   <td className="px-3 py-2 text-sm whitespace-nowrap align-middle">
-                  <p className="text-blue-600 font-semibold">
-                      {formatCurrency(product.competitorPrice)}
-                  </p>
-                  <p className="text-xs text-gray-400 mt-0.5">
+                    {product.competitorUrl ? (
+                      <a
+                        href={product.competitorUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 font-semibold hover:underline"
+                      >
+                        {formatCurrency(product.competitorPrice)}
+                      </a>
+                    ) : (
+                      <p className="text-blue-600 font-semibold">
+                        {formatCurrency(product.competitorPrice)}
+                      </p>
+                    )}
+
+                    <p className="text-xs text-gray-400 mt-0.5">
                       {product.source ?? "N/A"}
-                  </p>
+                    </p>
                   </td>
+
 
                   <td className="px-3 py-2 text-sm whitespace-nowrap align-middle">
                     {formatCurrency(product.minPrice)}

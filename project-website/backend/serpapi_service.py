@@ -44,6 +44,7 @@ def fetch_competitor_price(query: str):
                 "rating": item.get("rating"),
                 "reviews": item.get("reviews"),
                 "thumbnail": item.get("thumbnail"),
+                "competitorUrl": item.get("product_page_url"),
             }
             break
 
@@ -92,6 +93,7 @@ def build_dashboard_products():
             "risk": risk,
             "source": competitor["source"] if competitor else "Fallback",
             "competitorName": competitor["competitorName"] if competitor else "N/A",
+            "competitorUrl": competitor.get("competitorUrl") if competitor else None,
             "rating": competitor.get("rating") if competitor else None,
             "reviews": competitor.get("reviews") if competitor else None,
             "thumbnail": competitor.get("thumbnail") if competitor else None,
