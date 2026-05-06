@@ -22,7 +22,7 @@ export default function PriceHistoryChart({ product }: any) {
       : product.history1y;
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow">
+    <div className="bg-white p-6 rounded-2xl shadow min-h-[430px]">
       <div className="flex justify-between items-start mb-6">
         <div>
           <h2 className="text-2xl font-bold">Price History</h2>
@@ -46,36 +46,38 @@ export default function PriceHistoryChart({ product }: any) {
         </div>
       </div>
 
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="4 4" vertical={false} />
-          <XAxis dataKey="date" />
-          <YAxis tickFormatter={(value) => `$${value}`} />
-          <Tooltip
-            formatter={(value: number, name: string) => [
-              `$${value.toFixed(2)}`,
-              name === "current" ? "Current" : "AI Suggested",
-            ]}
-          />
+      <div className="h-[320px]">
+        <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={data}>
+            <CartesianGrid strokeDasharray="4 4" vertical={false} />
+            <XAxis dataKey="date" />
+            <YAxis tickFormatter={(value) => `$${value}`} />
+            <Tooltip
+                formatter={(value: number, name: string) => [
+                `$${value.toFixed(2)}`,
+                name === "current" ? "Current" : "AI Suggested",
+                ]}
+            />
 
-          <Line
-            type="monotone"
-            dataKey="current"
-            stroke="#2563eb"
-            strokeWidth={3}
-            dot={false}
-          />
+            <Line
+                type="monotone"
+                dataKey="current"
+                stroke="#2563eb"
+                strokeWidth={3}
+                dot={false}
+            />
 
-          <Line
-            type="monotone"
-            dataKey="ai"
-            stroke="#059669"
-            strokeWidth={3}
-            strokeDasharray="6 6"
-            dot={false}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+            <Line
+                type="monotone"
+                dataKey="ai"
+                stroke="#059669"
+                strokeWidth={3}
+                strokeDasharray="6 6"
+                dot={false}
+            />
+            </LineChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }
